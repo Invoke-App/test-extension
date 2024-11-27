@@ -1,22 +1,22 @@
 {
-    "name": "example-search",
+    "name": "pokemon-search",
     "publisher": "invoke-examples",
-    "description": "Example search extension for Invoke",
+    "description": "Search Pokemon using PokéAPI",
     "version": "1.0.0",
     "engines": {
         "invoke": "^2.0.0"
     },
     "main": "dist/index.js",
     "capabilities": ["Search"],
-    "permissions": ["search"],
+    "permissions": ["search", "network"],
     "activationEvents": [
         "onSearch"
     ],
     "contributes": {
         "commands": [
             {
-                "command": "example.search",
-                "title": "Example Search"
+                "command": "pokemon.view",
+                "title": "View Pokemon"
             }
         ]
     },
@@ -27,4 +27,4 @@
         "typescript": "^5.0.0"
     },
     "type": "module"
-} 
+}
