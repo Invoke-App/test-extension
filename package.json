@@ -1,0 +1,29 @@
+{
+    "name": "example-search",
+    "publisher": "invoke-examples",
+    "description": "Example search extension for Invoke",
+    "version": "1.0.0",
+    "engines": {
+        "invoke": "^2.0.0"
+    },
+    "main": "dist/index.js",
+    "capabilities": ["Search"],
+    "permissions": ["search"],
+    "activationEvents": [
+        "onSearch"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "example.search",
+                "title": "Example Search"
+            }
+        ]
+    },
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0"
+    }
+} 
