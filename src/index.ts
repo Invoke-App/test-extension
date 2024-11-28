@@ -1,24 +1,9 @@
 // Use relative path to types file or create a local types.d.ts
-interface SearchResult {
-    id: string;
-    title: string;
-    subtitle?: string;
-    icon?: string;
-    action: {
-        type: 'Simple';
-        command: string;
-    };
-}
-
-interface ExtensionInterface {
-    isActive: boolean;
-    activate(): Promise<void>;
-    deactivate(): Promise<void>;
-    search?(query: string): Promise<SearchResult[]>;
-}
+import type { ExtensionInterface, ExtensionManifest, SearchResult, SystemEvent } from '$lib/types/extensions';
 
 export default class PokemonSearchExtension implements ExtensionInterface {
-    isActive = true;
+    isActive = false;
+    manifest!: ExtensionManifest;
     private searchTimeout: any | null = null;
     private lastQuery = '';
 
@@ -33,6 +18,25 @@ export default class PokemonSearchExtension implements ExtensionInterface {
             clearTimeout(this.searchTimeout);
         }
         console.log("Pokemon search extension deactivated");
+    }
+
+    async startBackground(): Promise<void> {
+        // No background tasks needed
+        return;
+    }
+
+    async stopBackground(): Promise<void> {
+        // No background tasks needed
+        return;
+    }
+
+    async handleText(text: string): Promise<string | undefined> {
+        // No text handling needed
+        return undefined;
+    }
+
+    handleSystemEvent(event: SystemEvent): void {
+        // No system event handling needed
     }
 
     async search(query: string): Promise<SearchResult[]> {

@@ -1,6 +1,7 @@
 // src/index.ts
 class PokemonSearchExtension {
-  isActive = true;
+  isActive = false;
+  manifest;
   searchTimeout = null;
   lastQuery = "";
   async activate() {
@@ -13,6 +14,17 @@ class PokemonSearchExtension {
       clearTimeout(this.searchTimeout);
     }
     console.log("Pokemon search extension deactivated");
+  }
+  async startBackground() {
+    return;
+  }
+  async stopBackground() {
+    return;
+  }
+  async handleText(text) {
+    return;
+  }
+  handleSystemEvent(event) {
   }
   async search(query) {
     if (!this.isActive || !query.startsWith(":poke ")) {
