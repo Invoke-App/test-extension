@@ -7,13 +7,7 @@
         "invoke": ">=0.1.0"
     },
     "main": "dist/index.js",
-    "scripts": {
-        "build": "bun build ./src/index.ts --outdir ./dist"
-    },
-    "devDependencies": {
-        "typescript": "^5.0.0"
-    },
-    "type": "module",
+    "capabilities": ["Search"],
     "permissions": ["search"],
     "activationEvents": ["onSearch"],
     "contributes": {
@@ -36,5 +30,12 @@
                 }
             }
         }
-    }
+    },
+    "scripts": {
+        "build": "bun build ./src/index.ts --outdir ./dist"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "type": "module"
 }
